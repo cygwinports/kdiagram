@@ -1,0 +1,42 @@
+inherit kf5
+
+NAME="kdiagram"
+VERSION=2.6.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE diagram libraries"
+HOMEPAGE="https://api.kde.org/extragear-api/graphics-apidocs/kdiagram/html/"
+SRC_URI="mirror://kde/stable/kdiagram/${VERSION}/src/kdiagram-${VERSION}.tar.xz"
+
+PKG_NAMES="libKChart2 libKChart-devel libKGantt2 libKGantt-devel"
+libKChart2_SUMMARY="KDE business chart library"
+libKChart2_DOCS="LICENSE.*"
+libKChart2_CONTENTS="
+	usr/bin/cygKChart-2.dll
+	usr/share/locale/*/LC_MESSAGES/kchart_qt.qm
+"
+libKChart_devel_SUMMARY=${libKChart2_SUMMARY}
+libKChart_devel_REQUIRES="libQt5Core-devel libQt5Gui-devel"
+libKChart_devel_CONTENTS="
+	usr/include/KChart/
+	usr/include/kchart_version.h
+	usr/lib/cmake/KChart/
+	usr/lib/libKChart.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_KChart.pri
+"
+libKGantt2_SUMMARY="KDE Gantt diagram library"
+libKGantt2_DOCS="LICENSE.*"
+libKGantt2_CONTENTS="
+	usr/bin/cygKGantt-2.dll
+	usr/share/locale/*/LC_MESSAGES/kgantt_qt.qm
+"
+libKGantt_devel_SUMMARY=${libKGantt2_SUMMARY}
+libKGantt_devel_REQUIRES="libQt5Core-devel libQt5Gui-devel"
+libKGantt_devel_CONTENTS="
+	usr/include/KGantt/
+	usr/include/kgantt_version.h
+	usr/lib/cmake/KGantt/
+	usr/lib/libKGantt.dll.a
+	usr/lib/qt5/mkspecs/modules/qt_KGantt.pri
+"
+PKG_IGNORE="usr/share/doc/kdiagram/"
